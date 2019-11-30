@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Web聊天室：<span id="tips"></span></h1>
+    <div class="form">
+        <input id="txt" type="text" placeholder="请输入文字">
+        <input id="btn" type="button" value="发送" onclick="sendMessage();">
+    </div>
+    <div id="content">
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var ws;
+
+        $(function () {
+            initWebSocket();
+        });
+
+        function initWebSocket() {
+            ws = new WebSocket("ws://127.0.0.1:8000/x1/");
+            ws.onopen = function(){
+                $('#tips').text('连接成功');
+            };
+            ws.onmessage = function (arg) {
+                var tag = document.createElement('div');
+                tag.innerHTML = arg.data;
+                $('#content').append(tag);
+            };
+            ws.onclose = function () {
+                ws.close();
+            }
+        }
+
+        function sendMessage() {
+            ws.send($('#txt').val());
+        }
+    </script>
+</body>
+</html>

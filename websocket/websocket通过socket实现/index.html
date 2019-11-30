@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="开始" onclick="startConnect();">
+
+<script>
+    var ws = null;
+    function startConnect() {
+        // 1. 内部会先发送随机字符串
+        // 2. 内部会校验加密字符串
+        ws = new WebSocket('ws://127.0.0.1:8002')
+
+    }
+</script>
+</body>
+</html>
