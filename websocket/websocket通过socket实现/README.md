@@ -91,4 +91,4 @@ var Socket = new WebSocket(url, [protocol] );
 
 **点击开始之后，发送了一个http请求，头部就有Sec-WebSocket-Key随机字符串**
 
-![](http://q1cw3e2d5.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20191130125358.jpg)
+![](../img/1.jpg)
