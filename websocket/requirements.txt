@@ -1,2 +1,2 @@
 channels==2.3.1
-Django==1.11.9
+Django==1.11.28
